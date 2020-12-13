@@ -1,0 +1,92 @@
+﻿@model UserProfileModel
+@{
+    ViewData["Title"] = "ManageDelegation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center ">Manage Delegates</h2>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">People I have Delegated to</div>
+                <div class="card-body">
+
+                    @foreach (var person in Model.listDelegates)
+                    {
+                        <form action="/Home/RemoveDelegateRoute" method="post" id="removeDelegation" class="form-horizontal">
+                            <div class="form-group row">
+
+                                <input type="hidden" class="form-control" id="delegateUser" name="delegateEmail" value="@person.email">
+                                <input type="hidden" class="form-control" id="delegateUser" name="delegateOktaId" value="@person.oktaId">
+                                <label for="myB" class="col-sm-auto col-form-label">@person.email</label>
+                                <div class="col-sm-10">
+                                    <button id="myB" type="submit" class="btn btn-primary">Remove Delegate</button>
+                                </div>
+                            </div>
+                        </form>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">People who have granted me access to their Account</div>
+                <div class="card-body">
+
+
+                    @foreach (var person in Model.listPermissions)
+                    {
+                        <form action="/Home/ViewDelegateRoute" method="post" id="viewDelegation" class="form-horizontal">
+                            <div class="form-group row">
+
+                                <input type="hidden" class="form-control" id="delegateUser" name="delegateEmail" value="@person.email">
+                                <input type="hidden" class="form-control" id="delegateUser" name="delegateOktaId" value="@person.oktaId">
+                                <label for="myB" class="col-sm-auto col-form-label">@person.email</label>
+                                <div class="col-sm-10">
+                                    <button id="myB" type="submit" class="btn btn-primary">View Delegate User Details</button>
+                                </div>
+                            </div>
+                        </form>
+                    }
+
+
+                    @*@foreach (var person in Model.listPermissions)
+        {
+            @person.email
+        }*@
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">Choose New People to Delegate to</div>
+                <div class="card-body">
+                    <form action="/Home/AddDelegateRoute" method="post" id="addDelegation" class="form-horizontal">
+
+                        <div class="form-group row">
+                            <label for="searchCriteria" class="col-sm-2 col-form-label">Search Criteria</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="searchCriteria" name="searchCriteria" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button id="myB" type="submit" class="btn btn-primary">Add New Delegate</button>
+                                @*<p>Input can be FirstName, LastName (if it is unambigious) or Email address </p>*@
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

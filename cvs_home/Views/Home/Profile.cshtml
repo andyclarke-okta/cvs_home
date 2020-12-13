@@ -1,0 +1,349 @@
+﻿@model UserProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <h2 class="text-center ">Profile Management</h2>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">Personnal Information</div>
+                <div class="card-body">
+                    <form class="was-validated form-horizontal" action="/Home/ProfileRoute" method="POST">
+                        @if (Model.auth_idp == "00o31h3h8X1Rmi47z1d6")
+                        {
+                            @*//common attributes*@
+                            <label for="email">Email:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                                <input name="email" class="form-control" id="email" type="email" value="@Model.email" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+                            @*//common attributes*@
+                            <label for="firstname">FirstName:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="firstname" class="form-control" id="firstname" type="text" value="@Model.firstName" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+                            @*//common attributes*@
+                            <label for="lastname">LastName:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="lastname" class="form-control" id="lastname" type="text" value="@Model.lastName" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+
+
+                            @*//consumer attributes*@
+                            <label for="region">Region</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input type="text" class="form-control" id="region" name="region" value="@Model.region">
+                                <div class="valid-feedback">Valid.</div>
+                                @*<div class="invalid-feedback">Mandatory field.</div>*@
+                            </div>
+
+                            @*<label for="consent">Consent:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                                </div>
+                                <input name="consent" id="consent" class="form-control" type="text" value="@Model.consent" disabled>&nbsp;&nbsp;
+                            </div>
+
+
+                            <label for="last_verification_date">Last Verification Date:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                                </div>
+                                <input name="last_verification_date" id="last_verification_date" class="form-control" type="text" value="@Model.last_verification_date" disabled>&nbsp;&nbsp;
+                            </div>*@
+
+                        }
+
+                        @if (Model.auth_idp != "00o31h3h8X1Rmi47z1d6")
+                        {
+                            @*//common attributes*@
+                            <label for="email">Email:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                                <input name="email" class="form-control" id="email" type="email" value="@Model.email" disabled>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+                            @*//common attributes*@
+                            <label for="firstname">FirstName:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="firstname" class="form-control" id="firstname" type="text" value="@Model.firstName" disabled>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+                            @*//common attributes*@
+                            <label for="lastname">LastName:&nbsp;&nbsp;</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input name="lastname" class="form-control" id="lastname" type="text" value="@Model.lastName" disabled>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Mandatory field.</div>
+                            </div>
+
+                            @*<label for="consent">Consent:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                                </div>
+                                <input name="consent" id="consent" class="form-control" type="text" value="@Model.consent" disabled>&nbsp;&nbsp;
+                            </div>
+
+
+                            <label for="last_verification_date">Last Verification Date:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                                </div>
+                                <input name="last_verification_date" id="last_verification_date" class="form-control" type="text" value="@Model.last_verification_date" disabled>&nbsp;&nbsp;
+                            </div>*@
+
+
+                        }
+
+                        <input name="nconsent" id="nconsent" class="form-control" type="hidden" value="">
+                        <input id="oktaId" name="oktaId" class="form-control" type="hidden" value="@Model.oktaId">
+
+                        @if (Model.auth_idp == "00o31h3h8X1Rmi47z1d6")
+                        {
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+                            </div>
+                        }
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        @if (Model.auth_idp != "00o31h3h8X1Rmi47z1d6")
+        {
+
+            <div class="col-md-6">
+                <div class="card border-bottom">
+                    <div class="card-header  text-center ">Professional Info</div>
+                    <div class="card-body">
+                        <form class="was-validated form-horizontal">
+                            @*//provider attributes*@
+                            <label for="licenseState">State Physician Licensed:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input type="text" class="form-control" id="licenseState" name="licenseState" value="@Model.licenseState" disabled>
+                            </div>
+
+                            <label for="physicianId">Physician ID:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input type="text" class="form-control" id="physicianId" name="physicianId" value="@Model.physicianId" disabled>
+                            </div>
+
+                            <label for="practiceName">Name of your Practice:</label>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                <input type="text" class="form-control" id="practiceName" name="practiceName" value="@Model.practiceName" disabled>
+                            </div>
+
+                       
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+            <div class="col-md-6">
+                <div class="card border-bottom">
+                    <div class="card-header  text-center ">Preferences</div>
+                    <div class="card-body">
+                        <form class="was-validated form-horizontal" action="/Home/PrefenceRoute" method="POST">
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <h6>It's OK to send me occasional offers?</h6>
+                                </div>
+                                <div class="col">
+                                    @if (Model.Promotions)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Promotions" id="Promotions1" value=false>
+                                            <label class="form-check-label" for="Promotions1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Promotions" id="Promotions2" value=true checked>
+                                            <label class="form-check-label" for="Promotions2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Promotions" id="Promotions1" value=false checked>
+                                            <label class="form-check-label" for="Promotions1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Promotions" id="Promotions2" value=true>
+                                            <label class="form-check-label" for="Promotions2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Please let me know when you have new products that might be of interest to me?</h6>
+                                </div>
+                                <div class="col">
+                                    @if (Model.ProductUpdates)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ProductUpdates" id="ProductUpdates1" value=false>
+                                            <label class="form-check-label" for="ProductUpdates1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ProductUpdates" id="ProductUpdates2" value=true checked>
+                                            <label class="form-check-label" for="ProductUpdates2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ProductUpdates" id="ProductUpdates1" value=false checked>
+                                            <label class="form-check-label" for="ProductUpdates1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="ProductUpdates" id="ProductUpdates2" value=true>
+                                            <label class="form-check-label" for="ProductUpdates2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <h6>I'd like to be notified about opportunities to improve wellness?</h6>
+                                </div>
+                                <div class="col">
+                                    @if (Model.Webinars)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Webinars" id="Webinars1" value=false>
+                                            <label class="form-check-label" for="Webinars1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Webinars" id="Webinars2" value=true checked>
+                                            <label class="form-check-label" for="Webinars2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Webinars" id="Webinars1" value=false checked>
+                                            <label class="form-check-label" for="Webinars1">
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="Webinars" id="Webinars2" value=true>
+                                            <label class="form-check-label" for="Webinars2">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            <input id="oktaId" name="oktaId" class="form-control" type="hidden" value="@Model.oktaId">
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Update Prefences</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,268 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "ResourceThree";
+    Layout = null;
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResourceThree</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        /* Modify the background color */
+
+        .bg-custom-ajc {
+            background-color: #007bc1;
+        }
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-custom-ajc">
+                <a href="/">
+                    <picture>
+                        <img id="header_pict" class="img-fluid" src="~/img/cvs-health-logo-stacked_240.png" alt="CVS Health" />
+                    </picture>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-lg-5">
+                        <li class="nav-item"> <a class="nav-link " href="/" id="home-button">Home</a> </li>
+
+
+
+                        <li class="nav-item dropdown dropdown-xl no-caret">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownDemos" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Progressive</a>
+                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up mr-lg-n15" aria-labelledby="navbarDropdownDemos">
+                                <div class="row no-gutters">
+                                    <a class="dropdown-item" href="/Home/ResourceOne">ResourceOne</a>
+                                    <a class="dropdown-item" href="/Home/ResourceTwo">ResourceTwo</a>
+                                    <a class="dropdown-item" href="/Home/ResourceThree">ResourceThree</a>
+                                </div>
+                            </div>
+                        </li>
+                        <p class="navbar-text">Hello, @TempData["firstname"] </p>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>ResourceThree</h1>
+
+                <p>Resource Three requires your address and insurance provider</p>
+                <p>You are still an unregistered non authenticated user</p>
+                <!-- Trigger the modal with a button -->
+                @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#progressive">Open Modal</button>*@
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="progressive" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Complete User Profile</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" method="POST" action="/Home/ResourceThreeRoute">
+                        <label for="streetAddress">Street</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="streetAddress" name="streetAddress" value="" placeholder="Street" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="city">City</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="city" name="city" value="" placeholder="City" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="state">State</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="state" name="state" value="" placeholder="State" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="city">ZipCode</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="zipCode" name="zipCode" value="" placeholder="ZipCode" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="insuranceCarrier">Insurance Carrier</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="insuranceCarrier" name="insuranceCarrier" value="" placeholder="Insurance Carrier" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="insuranceId">Insurance ID</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="insuranceId" name="insuranceId" value="" placeholder="Insurance ID" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Thank You!</button>
+                    </form>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="register" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Would you like to Register?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" method="POST" action="/Home/ProgressiveRegister">
+                        @*<div class="form-group">
+                                <label for="region">Preferred Region</label>
+                                <input class="form-control" placeholder="Preferred Region"
+                                       type="text" id="region" name="region" />
+                            </div>*@
+
+
+                        <label for="region">Please Enter Email Address as your Username&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="email" class="form-control" id="email" type="email" value="" placeholder="Email Address" required>
+
+                        </div>
+
+                        <label for="region">Password&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="password" class="form-control" id="password" type="password" value="" placeholder="Password" required>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Register Now!</button>
+                    </form>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+
+      @{
+            if ((bool)TempData["IsProgressive"])
+            {
+                @:$("#progressive").modal('show');
+
+            }
+        }
+
+              @{
+            if ((bool)TempData["IsRegister"])
+            {
+                @:$("#register").modal('show');
+
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+

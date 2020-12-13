@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    @*<h2>Register User</h2>*@
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header text-center ">Register User</div>
+                <div class="card-body">
+                    <form method="POST" action="/Home/RegisterRoute" class="was-validated form-horizontal">
+
+                        <label for="email">Email:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="password">Password:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="firstName">FirstName:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="firstName" placeholder="FirstName" name="firstName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="lastName">LastName:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="lastName" placeholder="LastName" name="lastName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="streetAddress">Street Address:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="streetAddress" placeholder="Street Address" name="streetAddress">
+                        </div>
+
+                        <label for="city">City:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="city" placeholder="City" name="city">
+                        </div>
+
+                        <label for="state">State:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="state" placeholder="State" name="state">
+                        </div>
+
+
+                        <label for="zipCode">Zip Code:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="zipCode" placeholder="Zip" name="zipCode">
+                        </div>
+
+
+                        <label for="region">Region:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="region" placeholder="Preferred Region" name="region">
+                        </div>
+
+                        <label for="insuranceCarrier">Insurance Carrier</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="insuranceCarrier" name="insuranceCarrier" value="" placeholder="Insurance Carrier">
+
+                        </div>
+
+                        <label for="insuranceId">Insurance ID</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="insuranceId" name="insuranceId" value="" placeholder="Insurance ID">
+
+                        </div>
+
+
+                        <h6>
+                            I hereby consent and acknowledge my agreement to the terms set forth in the PRIVACY and CONSENT INFORMATION FORM. I understand that this consent shall remain in force
+                            from this time forward unless rejected.
+                        </h6>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#consentModal">View PRIVACY and CONSENT INFORMATION FORM</button>
+
+
+                        <div class="form-group">
+                            <input type="radio" id="accept" name="getConsent" value="true" />
+                            <label for="accept">Accept</label>
+                            <input type="radio" id="reject" name="getConsent" value="false" />
+                            <label for="reject">Reject</label>
+                        </div>
+
+
+
+
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember" required> I am not a Robot.
+                                <div class="valid-feedback">You are good to go!</div>
+                                <div class="invalid-feedback">Check this checkbox to continue.</div>
+                            </label>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Consent Modal -->
+<div class="modal fade" id="consentModal">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">PRIVACY and CONSENT INFORMATION FORM</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="mfamodalbody">
+                <p>The Local laws in many states and countries provide safeguards to protect your privacy. Implementation of Privacy requirements officially began on April 14, 2014. Many of the policies have been our practice for years. This form is a “friendly” version. A more complete text is posted in the office. What this is all about: Specifically, there are rules and restrictions on who may see or be notified of your Protected Personal Information (PPI). These restrictions do not include the normal interchange of information necessary to provide you with office services. We balance these needs with our goal of providing you with quality professional service and care. Additional information is available from the U.S. Department of Health and Human Services. www.hhs.gov We have adopted the following policies:</p>
+                <p>1. Patient information will be kept confidential except as is necessary to provide services or to ensure that all administrative matters related to your care are handled appropriately. This specifically includes the sharing of information with other healthcare providers, laboratories, health insurance payers as is necessary and appropriate for your care. Patient files may be stored in open file racks and will not contain any coding which identifies a patient’s condition or information which is not already a matter of public record. The normal course of providing care means that such records may be left, at least temporarily, in administrative areas such as the front office, examination room, etc. Those records will not be available to persons other than office staff . You agree to the normal procedures utilized within the office for the handling of reports, personal records, PPI and other documents or information.</p>
+                <p>2. It is the policy of this office to remind patients of their appointments. We may do this by telephone, e-mail, U.S mail, or by any means convenient for the practice and/or as requested by you. We may send you other communications informing you of changes to office policy and new technology that you might find valuable or informative.</p>
+                <p>3. The company utilizes a number of vendors in the conduct of business. These vendors may have access to PPI but must agree to abide by the confidentiality rules.</p>
+                <p>4. You understand and agree to inspections of the office and review of documents which may include PPI by government agencies in normal performance of their duties.</p>
+                <p>5. You agree to bring any concerns or complaints regarding privacy to the attention of the office manger.</p>
+                <p>6. Your confidential information will not be used for the purposes of marketing or advertising of products, goods or services.</p>
+                <p>7. We agree to provide patients with access to their records in accordance with state and federal laws.</p>
+                <p>8. We may change, add, delete or modify any of these provisions to better serve the needs of the both the practice and the patient.</p>
+                <p>9. You have the right to request restrictions in the use of your protected health information and to request change in certain policies used within the office concerning your PPI. However, we are not obligated to alter internal policies to conform to your request.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

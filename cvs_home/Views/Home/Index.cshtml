@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "CVS Home";
+}
+
+<div class="container">
+    <center>
+
+        <h2 class="title">Welcome to CVS Health</h2>
+
+        <br>
+        <div class="docs-section" id="intro">
+            <p>At CVS Health, we share a clear purpose: helping people on their path to better health. Through our health services, plans and community pharmacists, we’re pioneering a bold new approach to total health. Making quality care more affordable, accessible, simple and seamless, to not only help people get well, but help them stay well in body, mind and spirit.</p>
+            <br />
+            <p>As you probably know, we have been working on a new user experience for our customer portal. We are now releasing the first version of the portal. There are still many things that we want to build into the portal in the not-too-far-off future.</p>
+
+        </div>
+
+        <fieldset style="display:block;">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p>This is protected content of Sample Application</p>
+                <p>Available only after successful authentication</p>
+            }
+            else
+            {
+                <br>
+                <h2 class="title">Please Log into CVS Home to Access Apps and Protected Content</h2>
+
+                <br>
+            }
+        </fieldset>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                <img src="~/img/cvs_health_b_roll_1000.jpg" />
+            </div>
+        }
+        @*else
+        {
+            <div>
+                <img src="~/img/cvs-pharmacy-1200.jpg" />
+            </div>
+        }*@
+
+
+
+
+        <div class="card-group">
+            <div class="card">
+                <img src="~/img/aetna_betterHealth.png" class="card-img-top" alt="Commercial">
+                <div class="card-body">
+                    <h5 class="card-title">Aetna</h5>
+                    <p class="card-text">Explore our savings, quality care and wellness solutions to craft the perfect plan for your business.</p>
+                    @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+                </div>
+            </div>
+            <div class="card">
+                <img src="~/img/CVS_pharmacy_circle.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">CVS Pharmacy</h5>
+                    <p class="card-text">
+                        We're here to support you through COVID-19.
+                        The outbreak of COVID-19 is a rapidly evolving situation. Get the latest updates.
+                    </p>
+
+                </div>
+            </div>
+            <div class="card">
+                <img src="~/img/rx-300.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">CVS Caremark</h5>
+                    <p class="card-text">Making sure you have access to affordable medication and convenient options for filling is our priority.</p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+    </center>
+</div>
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="notificationModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">@TempData["title"]</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <p> @TempData["message1"]</p>
+                    <p> @TempData["message2"]</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

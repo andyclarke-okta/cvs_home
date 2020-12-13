@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "RequestApp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>Please choose Application from List </p>
+
+
+<div class="container">
+    <h2>Requesting  Application</h2>
+    <p>Please choose Application from List </p>
+    <form method="POST" action="/Home/RequestAppRoute" class="was-validated">
+
+        <div class="form-group">
+            <label for="requestApp">Available Applications</label>
+            <select class="form-control" id="requestApp" name="requestApp">
+                <option>CVS Caremark</option>
+                <option>CVS Mini Clinic</option>
+                <option>Aetna</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+

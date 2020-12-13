@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewData["Title"] = "ResourceOne";
+    Layout = null;
+   
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResourceOne</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        /* Modify the background color */
+
+        .bg-custom-ajc {
+            background-color: #007bc1;
+        }
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-custom-ajc">
+                <a href="/">
+                    <picture>
+                        <img id="header_pict" class="img-fluid" src="~/img/cvs-health-logo-stacked_240.png" alt="CVS Health" />
+                    </picture>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-lg-5">
+                        <li class="nav-item"> <a class="nav-link " href="/" id="home-button">Home</a> </li>
+
+
+
+                        <li class="nav-item dropdown dropdown-xl no-caret">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownDemos" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Progressive</a>
+                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up mr-lg-n15" aria-labelledby="navbarDropdownDemos">
+                                <div class="row no-gutters">
+                                    <a class="dropdown-item" href="/Home/ResourceOne">ResourceOne</a>
+                                    <a class="dropdown-item" href="/Home/ResourceTwo">ResourceTwo</a>
+                                    <a class="dropdown-item" href="/Home/ResourceThree">ResourceThree</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <p class="navbar-text">Hello, @TempData["firstname"] </p>
+
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>ResourceOne</h1>
+
+                <p>Resource One only requires a name and accepting privacy policy</p>
+                <p>You are still an unregistered non authenticated user</p>
+                <!-- Trigger the modal with a button -->
+                @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#progressive">Open Modal</button>*@
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="progressive" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start User Profile</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" method="POST" action="/Home/ResourceOneRoute">
+                        @*<div class="form-group">
+                                <label for="inputUserName">Username</label>
+                                <input class="form-control" placeholder="Login Username"
+                                       type="text" id="inputUserName" name="inputUserName" />
+                            </div>*@
+
+
+                        <label for="firstname">FirstName:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="firstname" class="form-control" id="firstname" type="text" value="" placeholder="FirstName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="lastname">LastName:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="lastname" class="form-control" id="lastname" type="text" value="" placeholder="LastName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+
+                        <h6>
+                            I hereby consent and acknowledge my agreement to the terms set forth in the PRIVACY and CONSENT INFORMATION FORM. I understand that this consent shall remain in force
+                            from this time forward unless rejected.
+                        </h6>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#consentModal">View PRIVACY and CONSENT INFORMATION FORM</button>
+
+
+                        <div class="form-group">
+                            <input type="radio" id="accept" name="getConsent" value="true" />
+                            <label for="accept">Accept</label>
+                            <input type="radio" id="reject" name="getConsent" value="false" />
+                            <label for="reject">Reject</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Thank You!</button>
+                    </form>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Consent Modal -->
+    <div class="modal fade" id="consentModal">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">PRIVACY and CONSENT INFORMATION FORM</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="mfamodalbody">
+                    <p>The Local laws in many states and countries provide safeguards to protect your privacy. Implementation of Privacy requirements officially began on April 14, 2014. Many of the policies have been our practice for years. This form is a “friendly” version. A more complete text is posted in the office. What this is all about: Specifically, there are rules and restrictions on who may see or be notified of your Protected Personal Information (PPI). These restrictions do not include the normal interchange of information necessary to provide you with office services. We balance these needs with our goal of providing you with quality professional service and care. Additional information is available from the U.S. Department of Health and Human Services. www.hhs.gov We have adopted the following policies:</p>
+                    <p>1. Patient information will be kept confidential except as is necessary to provide services or to ensure that all administrative matters related to your care are handled appropriately. This specifically includes the sharing of information with other healthcare providers, laboratories, health insurance payers as is necessary and appropriate for your care. Patient files may be stored in open file racks and will not contain any coding which identifies a patient’s condition or information which is not already a matter of public record. The normal course of providing care means that such records may be left, at least temporarily, in administrative areas such as the front office, examination room, etc. Those records will not be available to persons other than office staff . You agree to the normal procedures utilized within the office for the handling of reports, personal records, PPI and other documents or information.</p>
+                    <p>2. It is the policy of this office to remind patients of their appointments. We may do this by telephone, e-mail, U.S mail, or by any means convenient for the practice and/or as requested by you. We may send you other communications informing you of changes to office policy and new technology that you might find valuable or informative.</p>
+                    <p>3. The company utilizes a number of vendors in the conduct of business. These vendors may have access to PPI but must agree to abide by the confidentiality rules.</p>
+                    <p>4. You understand and agree to inspections of the office and review of documents which may include PPI by government agencies in normal performance of their duties.</p>
+                    <p>5. You agree to bring any concerns or complaints regarding privacy to the attention of the office manger.</p>
+                    <p>6. Your confidential information will not be used for the purposes of marketing or advertising of products, goods or services.</p>
+                    <p>7. We agree to provide patients with access to their records in accordance with state and federal laws.</p>
+                    <p>8. We may change, add, delete or modify any of these provisions to better serve the needs of the both the practice and the patient.</p>
+                    <p>9. You have the right to request restrictions in the use of your protected health information and to request change in certain policies used within the office concerning your PPI. However, we are not obligated to alter internal policies to conform to your request.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+
+      @{
+            if ((bool)TempData["IsProgressive"])
+            {
+                @:$("#progressive").modal('show');
+
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+

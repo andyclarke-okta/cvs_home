@@ -1,0 +1,359 @@
+﻿@model UserProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <!--<h2 class="text-center ">Account Management</h2>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">Personnal Information</div>
+                <div class="card-body">
+                    <form class="was-validated form-horizontal" action="/Home/ProfileRoute" method="POST">-->
+
+                        @*//common attributes*@
+                        <!--<label for="email">Email:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input name="email" class="form-control" id="email" type="email" value="@Model.email" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="firstname">FirstName:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="firstname" class="form-control" id="firstname" type="text" value="@Model.firstName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>
+
+                        <label for="lastname">LastName:&nbsp;&nbsp;</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="lastname" class="form-control" id="lastname" type="text" value="@Model.lastName" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>-->
+
+
+                        @*<label for="mobilePhone">Mobile Phone:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            </div>
+                            <input name="mobilePhone" id="mobilePhone" class="form-control" type="text" value="@Model.mobilePhone" >
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Mandatory field.</div>
+                        </div>*@
+
+
+
+                    <!--<label for="countryCode">Couuntry Code:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="countryCode" name="countryCode" value="@Model.countryCode">
+                            <div class="valid-feedback">Valid.</div>-->
+                            @*<div class="invalid-feedback">Mandatory field.</div>*@
+                        <!--</div>
+
+
+                        <label for="customId">Account ID:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input type="text" class="form-control" id="customId" name="customId" value="@Model.customId">
+                            <div class="valid-feedback">Valid.</div>-->
+                            @*<div class="invalid-feedback">Mandatory field.</div>*@
+                        <!--</div>
+
+                        <div class="form-group">
+                            <label for="primaryRole">Primary Role</label>
+                            <select class="form-control" id="primaryRole" name="primaryRole" >
+                                <option hidden>@Model.primaryRole</option>
+                                <option>Clinical</option>
+                                <option>Administration</option>
+                                <option>Compliance</option>
+                                <option>Auditor</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <h6>Opt out of geolocation tracking on mobile?</h6>
+                            </div>
+                            <div class="col">
+                                @if (Model.hasOptedOutGeoTracking == "true")
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutGeoTracking" id="hasOptedOutGeoTracking1" value="false" >
+                                        <label class="form-check-label" for="hasOptedOutGeoTracking1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutGeoTracking" id="hasOptedOutGeoTracking2" value="true" checked>
+                                        <label class="form-check-label" for="hasOptedOutGeoTracking2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutGeoTracking" id="hasOptedOutGeoTracking1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutGeoTracking1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutGeoTracking" id="hasOptedOutGeoTracking2" value="true">
+                                        <label class="form-check-label" for="hasOptedOutGeoTracking2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <h6>Opt out of profiling?</h6>
+                            </div>
+                            <div class="col">
+                                @if (Model.hasOptedOutProfiling == "true")
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProfiling" id="hasOptedOutProfiling1" value="false" >
+                                        <label class="form-check-label" for="hasOptedOutProfiling1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProfiling" id="hasOptedOutProfiling2" value="true" checked>
+                                        <label class="form-check-label" for="hasOptedOutProfiling2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProfiling" id="hasOptedOutProfiling1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutProfiling1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProfiling" id="hasOptedOutProfiling2" value="true">
+                                        <label class="form-check-label" for="hasOptedOutProfiling2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h6>Opt out of web activity and email tracking?</h6>
+                            </div>
+                            <div class="col">
+                                @if (Model.hasOptedOutTracking == "true")
+                                {
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutTracking" id="hasOptedOutTracking1" value="false" >
+                                        <label class="form-check-label" for="hasOptedOutTracking1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutTracking" id="hasOptedOutTracking2" value="true" checked>
+                                        <label class="form-check-label" for="hasOptedOutTracking2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutTracking" id="hasOptedOutTracking1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutTracking1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutTracking" id="hasOptedOutTracking2" value="true">
+                                        <label class="form-check-label" for="hasOptedOutTracking2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+                                <h6>Opt out of processing personal data?</h6>
+                            </div>
+                            <div class="col">
+                                @if (Model.hasOptedOutProcessing == "true")
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProcessing" id="hasOptedOutProcessing1" value="false" >
+                                        <label class="form-check-label" for="hasOptedOutProcessing1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProcessing" id="hasOptedOutProcessing2" value="true" checked>
+                                        <label class="form-check-label" for="hasOptedOutProcessing2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProcessing" id="hasOptedOutProcessing1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutProcessing1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutProcessing" id="hasOptedOutProcessing2" value="true">
+                                        <label class="form-check-label" for="hasOptedOutProcessing2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h6>Opt out of product and service solicitation?</h6>
+                            </div>
+                            <div class="col">
+                                @if (Model.hasOptedOutSolicit == "true")
+                                {
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutSolicit" id="hasOptedOutSolicit1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutSolicit1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutSolicit" id="hasOptedOutSolicit2" value="true" checked>
+                                        <label class="form-check-label" for="hasOptedOutSolicit2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutSolicit" id="hasOptedOutSolicit1" value="false" checked>
+                                        <label class="form-check-label" for="hasOptedOutSolicit1">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasOptedOutSolicit" id="hasOptedOutSolicit2" value="true">
+                                        <label class="form-check-label" for="hasOptedOutSolicit2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                        <input name="nconsent" id="nconsent" class="form-control" type="hidden" value="">
+                        <input id="oktaId" name="oktaId" class="form-control" type="hidden" value="@Model.oktaId">
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Update Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-bottom">
+                <div class="card-header  text-center ">Read Only</div>
+                <div class="card-body">
+                    <form class="was-validated form-horizontal">
+                        <label for="consent">Consent:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                            </div>
+                            <input name="consent" id="consent" class="form-control" type="text" value="@Model.consent" disabled>&nbsp;&nbsp;
+                        </div>
+
+                        <label for="level_of_assurance">Level of Assurance:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                            </div>
+                            <input name="level_of_assurance" id="level_of_assurance" class="form-control" type="text" value="@Model.level_of_assurance" disabled>&nbsp;&nbsp;
+                        </div>
+
+                        <label for="last_verification_date">Last Verification Date:</label>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                            </div>
+                            <input name="last_verification_date" id="last_verification_date" class="form-control" type="text" value="@Model.last_verification_date" disabled>&nbsp;&nbsp;
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
